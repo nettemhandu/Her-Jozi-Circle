@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Join the Circle - Her Jozi Circle</title>
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+</head>
+<body>
+  <div class="container">
+    <h1>Join the Circle</h1>
+    <h2><em>Create your account or log in</em></h2>
+
+    <div class="form-box">
+      <!-- Sign Up Form -->
+      <form action="#" method="post" class="signup-form">
+        <h3>Sign Up</h3>
+        <input type="text" placeholder="Full Name" required>
+        <input type="email" placeholder="Email Address" required>
+        <input type="password" placeholder="Password" required>
+        <button type="submit">Sign Up</button>
+      </form>
+
+      <hr class="divider">
+
+      <!-- Login Form -->
+      <form onsubmit="redirectToEvents(event)" class="login-form">
+        <h3>Login</h3>
+        <input type="email" placeholder="Email Address" required>
+        <input type="password" placeholder="Password" required>
+        <button type="submit">Login</button>
+      </form>
+    </div>
+
+    <footer>
+      <p>© 2025 Her Jozi Circle</p>
+    </footer>
+  </div>
+
+  <script>
+    function redirectToEvents(event) {
+      event.preventDefault(); // stop page reload
+      window.location.href = "events.html"; // go to events page
+    }
+  </script>
+</body>
+</html>

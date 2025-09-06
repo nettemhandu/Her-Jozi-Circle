@@ -1,40 +1,42 @@
-/* css/style.css */
-/* Feminine color palette */
+/* ========== COLOR PALETTE ========== */
 :root {
   --primary: #d291bc;    /* Soft lavender pink */
   --secondary: #ff9a9e;  /* Blush pink */
-  --accent: #a5dee5;     /* Soft sky blue */
+  --accent: #ecdcec;     /* Soft sky blue */
   --light: #f9f7fe;      /* Light lavender */
   --dark: #6a3093;       /* Deep purple */
-  --text: #333;          /* Dark gray for text */
+  --text: #f5f5f5;       /* Light text for dark backgrounds */
+  --background: #1e1e2f; /* Dark slate background */
+  --card-bg: #2a2a40;    /* Slightly lighter panel background */
 }
 
-/* General styles */
+/* ========== GENERAL ========== */
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Poppins', sans-serif;
   line-height: 1.6;
   color: var(--text);
-  background-color: var(--light);
+  background-color: var(--background);
   margin: 0;
   padding: 0;
-  text-align: center; /* Centers all text */
+  text-align: center;
 }
 
-/* Container to center content with max-width */
 .container {
   max-width: 1000px;
   margin: 0 auto;
   padding: 20px;
 }
 
-/* Heading styles */
+/* ========== HEADINGS ========== */
 h1 {
-  color: var(--dark);
-  font-size: 2.8rem;
+  font-family: 'Dancing Script', cursive;
+  color: var(--secondary);
+  font-size: 3rem;
   margin: 20px 0;
   padding-bottom: 15px;
-  border-bottom: 3px solid var(--secondary);
-  display: inline-block; /* Makes border only as wide as text */
+  border-bottom: 3px solid var(--primary);
+  display: inline-block;
+  text-align: center;
 }
 
 h2 {
@@ -42,16 +44,18 @@ h2 {
   font-size: 1.8rem;
   margin: 25px 0 15px;
   font-weight: normal;
+  text-align: center;
 }
 
 h3 {
-  color: var(--dark);
+  color: var(--secondary);
   font-size: 1.5rem;
   margin: 30px 0 15px;
   padding: 10px;
   background-color: rgba(210, 145, 188, 0.1);
   border-radius: 8px;
-  display: inline-block; /* Makes background only as wide as text */
+  display: inline-block;
+  text-align: center;
 }
 
 h4 {
@@ -59,22 +63,23 @@ h4 {
   font-size: 1.2rem;
   margin: 15px 0;
   font-weight: normal;
+  text-align: center;
 }
 
-/* Image styling */
+/* ========== IMAGES ========== */
 img {
   display: block;
   max-width: 90%;
   height: auto;
   margin: 20px auto;
   border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  border: 5px solid white;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+  border: 5px solid var(--card-bg);
 }
 
-/* Button styling */
-button {
-  display: block;
+/* ========== BUTTONS ========== */
+button, a.btn {
+  display: inline-block;
   margin: 30px auto;
   padding: 15px 35px;
   background: linear-gradient(to right, var(--primary), var(--secondary));
@@ -84,32 +89,41 @@ button {
   font-size: 1.1rem;
   font-weight: bold;
   cursor: pointer;
+  text-decoration: none;
   transition: transform 0.3s, box-shadow 0.3s;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.4);
 }
 
-button:hover {
+button:hover, a.btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.6);
+  text-align: center;
 }
 
-/* Paragraph styling */
+/* ========== TEXT & PARAGRAPHS ========== */
 p {
   max-width: 800px;
   margin: 15px auto;
   text-align: center;
   font-size: 1.1rem;
   line-height: 1.7;
+  color: var(--text);
 }
 
-/* List styling */
+em {
+  color: var(--accent);
+  font-style: normal;
+  font-weight: bold;
+}
+
+/* ========== LISTS ========== */
 ul {
   display: inline-block;
   text-align: left;
-  background-color: white;
+  background-color: var(--card-bg);
   padding: 25px 40px;
   border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.6);
   margin: 20px 0;
   max-width: 800px;
 }
@@ -120,24 +134,69 @@ li {
   line-height: 1.5;
 }
 
-/* Footer styling */
+/* ========== CARDS ========== */
+.testimonial, .event-card, .form-box {
+  background: var(--card-bg);
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+  margin: 30px auto;
+  max-width: 800px;
+  text-align: center;
+
+}
+
+.testimonial {
+  font-style: italic;
+  border-left: 5px solid var(--accent);
+}
+
+/* Event card headers */
+.event-card h3 {
+  font-family: 'Dancing Script', cursive;
+  color: var(--secondary);
+}
+
+/* Form headings */
+form h3 {
+  color: var(--secondary);
+  text-align: center;
+}
+
+/* ========== FORMS ========== */
+form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+input {
+  margin: 10px 0;
+  padding: 12px;
+  border: 2px solid var(--primary);
+  border-radius: 8px;
+  font-size: 1rem;
+  background: #1b1b2e;
+  color: var(--text);
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--secondary);
+  box-shadow: 0 0 5px var(--secondary);
+}
+
+/* ========== FOOTER ========== */
 footer {
   text-align: center;
   margin-top: 50px;
   padding: 25px;
-  background: linear-gradient(to right, var(--primary), var(--secondary));
-  color: white;
+  background: #111;
+  color: #aaa;
   border-radius: 10px 10px 0 0;
 }
 
-/* Emphasized text */
-em {
-  color: var(--dark);
-  font-style: normal;
-  font-weight: bold;
-}
-
-/* Decorative elements */
+/* ========== DIVIDERS ========== */
 .divider {
   height: 3px;
   background: linear-gradient(to right, transparent, var(--accent), transparent);
@@ -146,73 +205,10 @@ em {
   border: none;
 }
 
-/* Testimonial styling */
-.testimonial {
-  font-style: italic;
-  padding: 25px;
-  background-color: white;
-  border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-  margin: 30px auto;
-  max-width: 700px;
-  border-left: 5px solid var(--accent);
-}
-
-/* Responsive adjustments */
+/* ========== RESPONSIVE ========== */
 @media (max-width: 768px) {
-  .container {
-    padding: 15px;
-  }
-  
-  h1 {
-    font-size: 2.2rem;
-  }
-  
-  h2 {
-    font-size: 1.5rem;
-  }
-  
-  ul {
-    padding: 15px 25px;
-  }
-}
-
-/* Base font */
-body {
-  font-family: 'Poppins', sans-serif;
-  line-height: 1.6;
-  color: var(--text);
-  background-color: var(--light);
-  margin: 0;
-  padding: 0;
-  text-align: center;
-}
-
-/* Logo / Main Heading */
-h1 {
-  font-family: 'Dancing Script', cursive;
-  color: var(--dark);
-  font-size: 3rem;
-  margin: 20px 0;
-  padding-bottom: 15px;
-  border-bottom: 3px solid var(--secondary);
-  display: inline-block;
-}
-
-/* Subheadings */
-h2, h3, h4 {
-  font-family: 'Poppins', sans-serif;
-}
-
-/* Testimonial styling */
-.testimonial {
-  font-family: 'Poppins', sans-serif;
-  font-style: italic;
-  padding: 25px;
-  background-color: white;
-  border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-  margin: 30px auto;
-  max-width: 700px;
-  border-left: 5px solid var(--accent);
+  .container { padding: 15px; }
+  h1 { font-size: 2.2rem; }
+  h2 { font-size: 1.5rem; }
+  ul { padding: 15px 25px; }
 }
