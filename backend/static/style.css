@@ -212,3 +212,24 @@ footer {
   h2 { font-size: 1.5rem; }
   ul { padding: 15px 25px; }
 }
+
+
+/* ========== WELCOME BANNER ========== */
+.welcome-banner {
+  background-color: var(--primary);   /* uses your feminine palette */
+  color: white;                       /* text color */
+  padding: 12px 20px;
+  margin: 0;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 0 0 10px 10px;       /* rounded bottom edges */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  animation: fadeIn 1s ease-in-out;   /* smooth entry animation */
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+

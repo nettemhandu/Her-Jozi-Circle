@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Her Jozi Circle</title>
+
     <!-- Link to external CSS file -->
    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
@@ -22,8 +23,9 @@
       <!-- Image pulled from static folder -->
       <img src="{{ url_for('static', filename='women-laughing-together.jpg') }}" alt="Women laughing together">
 
+      <!-- Button for join circle using flask format -->
+      <a href="{{ url_for('signup') }}" class="btn">JOIN THE CIRCLE</a>
 
-      <a href="signup.html" class="btn">JOIN THE CIRCLE</a>
       <hr class="divider" />
 
       <h3>ABOUT US</h3>

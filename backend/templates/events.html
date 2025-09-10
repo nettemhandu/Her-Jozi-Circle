@@ -1,56 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Upcoming Events - Her Jozi Circle</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Upcoming Events - Her Jozi Circle</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
 
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  
-</head>
-<body>
-  <header>
-    <h1>Upcoming Events</h1>
-    <p><em>Find your next picnic, run, or creative session</em></p>
-  </header>
-
-  <main class="events-container">
-    <div class="event-card">
-      <h3>🌈 Rainbow Picnic — Emmarentia Park</h3>
-      <p><strong>Date:</strong> Saturday, Sept 20, 2025</p>
-      <p><strong>Time:</strong> 10:00 AM</p>
-      <p>Bring a blanket and a colorful dish. All ages welcome.</p>
-      <a href="#" class="btn">RSVP</a>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    {% if user %}
+    <div class="welcome-banner">
+      <p>🎉 Welcome {{ user }}! Thanks for joining the Circle.</p>
     </div>
+    {% endif %}
 
-    <div class="event-card">
-      <h3>🍷 Wine Tasting Night — Maboneng</h3>
-      <p><strong>Date:</strong> Sunday, Sept 28, 2025</p>
-      <p><strong>Time:</strong> 6:30 PM</p>
-      <p>Explore local wines paired with light bites and good company.</p>
-      <a href="#" class="btn">RSVP</a>
-    </div>
+    <header>
+      <h1>Upcoming Events</h1>
+      <p><em>Find your next picnic, run, or creative session</em></p>
+    </header>
 
-    <div class="event-card">
-      <h3>🎨 Paint & Express — Braamfontein Studio</h3>
-      <p><strong>Date:</strong> Sunday, Oct 5, 2025</p>
-      <p><strong>Time:</strong> 5:00 PM</p>
-      <p>Guided acrylic painting session — no experience needed!</p>
-      <a href="#" class="btn">RSVP</a>
-    </div>
+    <main class="events-container">
+      <div class="event-card">
+        <h3>🌈 Rainbow Picnic — Emmarentia Park</h3>
+        <p><strong>Date:</strong> Saturday, Sept 20, 2025</p>
+        <p><strong>Time:</strong> 10:00 AM</p>
+        <p>Bring a blanket and a colorful dish. All ages welcome.</p>
+        <a href="#" class="btn">RSVP</a>
+      </div>
 
-    <div class="event-card">
-      <h3>🏃 Jozi Sister Run — Zoo Lake</h3>
-      <p><strong>Date:</strong> Saturday, Oct 12, 2025</p>
-      <p><strong>Time:</strong> 7:30 AM</p>
-      <p>A 5km fun run followed by coffee and chats.</p>
-      <a href="#" class="btn">RSVP</a>
-    </div>
-  </main>
+      <div class="event-card">
+        <h3>🍷 Wine Tasting Night — Maboneng</h3>
+        <p><strong>Date:</strong> Sunday, Sept 28, 2025</p>
+        <p><strong>Time:</strong> 6:30 PM</p>
+        <p>Explore local wines paired with light bites and good company.</p>
+        <a href="#" class="btn">RSVP</a>
+      </div>
 
-  <footer>
-    <p>© 2025 Her Jozi Circle</p>
-  </footer>
-</body>
+      <div class="event-card">
+        <h3>🎨 Paint & Express — Braamfontein Studio</h3>
+        <p><strong>Date:</strong> Sunday, Oct 5, 2025</p>
+        <p><strong>Time:</strong> 5:00 PM</p>
+        <p>Guided acrylic painting session — no experience needed!</p>
+        <a href="#" class="btn">RSVP</a>
+      </div>
+
+      <div class="event-card">
+        <h3>🏃 Jozi Sister Run — Zoo Lake</h3>
+        <p><strong>Date:</strong> Saturday, Oct 12, 2025</p>
+        <p><strong>Time:</strong> 7:30 AM</p>
+        <p>A 5km fun run followed by coffee and chats.</p>
+        <a href="#" class="btn">RSVP</a>
+      </div>
+    </main>
+
+    <footer>
+      <p>© 2025 Her Jozi Circle</p>
+    </footer>
+  </body>
 </html>
