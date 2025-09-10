@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Her Jozi Circle</title>
     <!-- Link to external CSS file -->
-    <link rel="stylesheet" href="css/style.css" />
+   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
     <!-- my fonts  -->
     <link
       href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Poppins:wght@300;400;600&display=swap"
@@ -18,11 +19,9 @@
       <h1>Her Jozi Circle</h1>
       <h2><em>Sisterhood. Movement. Creativity. Connection.</em></h2>
 
-      <!-- Centered image - make sure the path is correct -->
-      <img
-        src="images/women-laughing-together.jpg"
-        alt="Women laughing together"
-      />
+      <!-- Image pulled from static folder -->
+      <img src="{{ url_for('static', filename='women-laughing-together.jpg') }}" alt="Women laughing together">
+
 
       <a href="signup.html" class="btn">JOIN THE CIRCLE</a>
       <hr class="divider" />
