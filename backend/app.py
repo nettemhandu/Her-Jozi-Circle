@@ -72,5 +72,18 @@ def events():
     user = request.args.get("user")  # get the name from the URL
     return render_template("events.html", user=user)
 
+
 if __name__ == "__main__":
     app.run(debug=True)
+    
+    
+ # debugging tool for viewing database info
+def show_users():
+    conn = sqlite3.connect("herjozicircle.db")
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM users")
+    users = cursor.fetchall()
+    conn.close()
+    print("📌 Current users in DB:", users)
+
+show_users()
