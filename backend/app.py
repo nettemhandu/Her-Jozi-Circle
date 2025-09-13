@@ -3,6 +3,24 @@ from flask import Flask, render_template, request, redirect, url_for
 
 app = Flask(__name__)
 
+# Create users table if it doesn't exist
+def init_db():
+    conn = sqlite3.connect("herjozicircle.db")
+    cursor = conn.cursor()
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS users (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name TEXT NOT NULL,
+            email TEXT UNIQUE NOT NULL,
+            password TEXT NOT NULL
+        )
+    ''')
+    conn.commit()
+    conn.close()
+
+# Call the function to initialize DB
+init_db()
+
 @app.route("/")
 def home():
     return render_template("index.html")
@@ -10,59 +28,43 @@ def home():
 @app.route("/signup", methods=["GET", "POST"])
 def signup():
     if request.method == "POST":
-        fullname = request.form["fullname"]
+        name = request.form["name"]
         email = request.form["email"]
         password = request.form["password"]
 
-        # Connect to the database
-        conn = sqlite3.connect("herjozi.db")
+        conn = sqlite3.connect("herjozicircle.db")
         cursor = conn.cursor()
 
         try:
-            # Insert new user
-            cursor.execute(
-                "INSERT INTO users (fullname, email, password) VALUES (?, ?, ?)",
-                (fullname, email, password)
-            )
+            cursor.execute("INSERT INTO users (name, email, password) VALUES (?, ?, ?)",
+                           (name, email, password))
             conn.commit()
         except sqlite3.IntegrityError:
-            # If the email already exists
-            conn.close()
-            return "This email is already registered."
-        
-        conn.close()
+            # Email already exists
+            return "This email is already registered. Please log in."
 
-        # Redirect to events page with welcome message
-        return redirect(url_for("events", user=fullname))
-    
+        conn.close()
+        return redirect(url_for("events", message=f"Welcome {name}! You signed up with {email}."))
+
     return render_template("signup.html")
 
 
-@app.route("/login", methods=["GET", "POST"])
+
+@app.route("/login", methods=["POST"])
 def login():
-    if request.method == "POST":
-        email = request.form["email"]
-        password = request.form["password"]
+    email = request.form["email"]
+    password = request.form["password"]
 
-        # Connect to the database
-        conn = sqlite3.connect("herjozi.db")
-        cursor = conn.cursor()
+    conn = sqlite3.connect("herjozicircle.db")
+    cursor = conn.cursor()
+    cursor.execute("SELECT name FROM users WHERE email = ? AND password = ?", (email, password))
+    user = cursor.fetchone()
+    conn.close()
 
-        # Find user by email
-        cursor.execute("SELECT fullname, password FROM users WHERE email=?", (email,))
-        user = cursor.fetchone()
-        conn.close()
-
-        # Check credentials
-        if user and user[1] == password:
-            # Login successful → redirect to events page with username
-            return redirect(url_for("events", user=user[0]))
-        else:
-            # Login failed → show message
-            return "Invalid email or password. Please try again."
-
-    # If GET request → show login form
-    return render_template("signup.html")  # or use a separate login.html
+    if user:
+        return redirect(url_for("events", message=f"Welcome back {user[0]}!"))
+    else:
+        return "Invalid login, please try again."
 
 
 @app.route("/events")
