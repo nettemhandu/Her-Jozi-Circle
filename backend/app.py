@@ -28,7 +28,7 @@ def home():
 @app.route("/signup", methods=["GET", "POST"])
 def signup():
     if request.method == "POST":
-        name = request.form["name"]
+        fullname = request.form["name"]
         email = request.form["email"]
         password = request.form["password"]
 
@@ -36,17 +36,19 @@ def signup():
         cursor = conn.cursor()
 
         try:
-            cursor.execute("INSERT INTO users (name, email, password) VALUES (?, ?, ?)",
-                           (name, email, password))
+            cursor.execute(
+                "INSERT INTO users (name, email, password) VALUES (?, ?, ?)",
+                (fullname, email, password)
+            )
             conn.commit()
         except sqlite3.IntegrityError:
-            # Email already exists
             return "This email is already registered. Please log in."
 
         conn.close()
-        return redirect(url_for("events", message=f"Welcome {name}! You signed up with {email}."))
+        return redirect(url_for("events", message=f"Welcome {fullname}! You signed up with {email}."))
 
     return render_template("signup.html")
+
 
 
 
