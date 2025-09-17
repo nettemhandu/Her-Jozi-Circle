@@ -15,11 +15,13 @@
     />
   </head>
   <body>
-    {% if user %}
     <div class="welcome-banner">
-      <p>🎉 Welcome {{ user }}! Thanks for joining the Circle.</p>
+      {% if user and action == "signup" %}
+      <h2>🎉 Welcome, {{ user }}! You successfully joined the circle.</h2>
+      {% elif user and action == "login" %}
+      <h2>👋 Welcome back to the circle, {{ user }}!</h2>
+      {% endif %}
     </div>
-    {% endif %}
 
     <header>
       <h1>Upcoming Events</h1>

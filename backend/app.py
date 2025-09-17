@@ -47,7 +47,8 @@ def signup():
             return "This email is already registered. Please log in."
 
         conn.close()
-        return redirect(url_for("events", user=fullname))
+        # Pass action=signup
+        return redirect(url_for("events", user=fullname, action="signup"))
 
     return render_template("signup.html")
 
@@ -64,26 +65,31 @@ def login():
     conn.close()
 
     if user:
-        return redirect(url_for("events", user=user[0]))
+        # Pass action=login
+        return redirect(url_for("events", user=user[0], action="login"))
     else:
         return "Invalid login, please try again."
+    
+return render_template("events.html", user=user)
+
 
 # Events page
 @app.route("/events")
 def events():
     user = request.args.get("user")
-    return render_template("events.html", user=user)
+    action = request.args.get("action")  # either "signup" or "login"
+    return render_template("events.html", user=user, action=action)
 
-# Debug: show all users
-def show_users():
-    conn = sqlite3.connect("herjozicircle.db")
-    cursor = conn.cursor()
-    cursor.execute("SELECT * FROM users")
-    users = cursor.fetchall()
-    conn.close()
-    print("Users in DB:", users)
+# # Debug: show all users
+# def show_users():
+#     conn = sqlite3.connect("herjozicircle.db")
+#     cursor = conn.cursor()
+#     cursor.execute("SELECT * FROM users")
+#     users = cursor.fetchall()
+#     conn.close()
+#     print("Users in DB:", users)
 
-show_users()
+# show_users()
 
 if __name__ == "__main__":
     app.run(debug=True)
