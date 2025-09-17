@@ -15,14 +15,29 @@
     />
   </head>
   <body>
-    <div class="welcome-banner">
-      {% if user and action == "signup" %}
-      <h2>🎉 Welcome, {{ user }}! You successfully joined the circle.</h2>
-      {% elif user and action == "login" %}
-      <h2>👋 Welcome back to the circle, {{ user }}!</h2>
-      {% endif %}
-    </div>
+    <div class="container">
 
+    <!-- Welcome Banner -->
+    {% if user and action == "signup" %}
+      <div class="welcome-banner">
+        🎉 Welcome, {{ user }}! You successfully joined the circle.
+      </div>
+    {% elif user and action == "login" %}
+      <div class="welcome-banner">
+        👋 Welcome back to the circle, {{ user }}!
+      </div>
+    {% endif %}
+
+    <!-- Main Events Content -->
+    <h1>Upcoming Events</h1>
+    <p>Check out all the amazing activities we have planned for you!</p>
+
+    <ul>
+      <li>Morning Run – Mondays 6:30 AM</li>
+      <li>Creative Circle – Wednesdays 5:00 PM</li>
+      <li>Book Club – Fridays 7:00 PM</li>
+      <li>Weekend Picnic – Saturday 10:00 AM</li>
+    </ul>
     <header>
       <h1>Upcoming Events</h1>
       <p><em>Find your next picnic, run, or creative session</em></p>

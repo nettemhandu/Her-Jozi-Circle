@@ -70,7 +70,6 @@ def login():
     else:
         return "Invalid login, please try again."
     
-return render_template("events.html", user=user)
 
 
 # Events page

@@ -213,13 +213,12 @@ footer {
   ul { padding: 15px 25px; }
 }
 
-
 /* ========== WELCOME BANNER ========== */
 .welcome-banner {
-  background-color: var(--primary);   /* uses your feminine palette */
+  background-color: var(--primary);   /* your feminine palette */
   color: white;                       /* text color */
   padding: 12px 20px;
-  margin: 0;
+  margin-bottom: 20px;
   text-align: center;
   font-size: 1.1rem;
   font-weight: 600;
@@ -228,9 +227,10 @@ footer {
   animation: fadeIn 1s ease-in-out;   /* smooth entry animation */
 }
 
-
+/* optional fadeIn animation */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-20px); }
+  from { opacity: 0; transform: translateY(-10px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
 
