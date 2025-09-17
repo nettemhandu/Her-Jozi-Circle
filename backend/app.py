@@ -3,7 +3,7 @@ from flask import Flask, render_template, request, redirect, url_for
 
 app = Flask(__name__)
 
-# Create users table if it doesn't exist
+# Initialize database
 def init_db():
     conn = sqlite3.connect("herjozicircle.db")
     cursor = conn.cursor()
@@ -18,13 +18,14 @@ def init_db():
     conn.commit()
     conn.close()
 
-# Call the function to initialize DB
 init_db()
 
+# Home page
 @app.route("/")
 def home():
     return render_template("index.html")
 
+# Signup
 @app.route("/signup", methods=["GET", "POST"])
 def signup():
     if request.method == "POST":
@@ -42,16 +43,15 @@ def signup():
             )
             conn.commit()
         except sqlite3.IntegrityError:
+            conn.close()
             return "This email is already registered. Please log in."
 
         conn.close()
-        return redirect(url_for("events", message=f"Welcome {fullname}! You signed up with {email}."))
+        return redirect(url_for("events", user=fullname))
 
     return render_template("signup.html")
 
-
-
-
+# Login
 @app.route("/login", methods=["POST"])
 def login():
     email = request.form["email"]
@@ -64,28 +64,26 @@ def login():
     conn.close()
 
     if user:
-        return redirect(url_for("events", message=f"Welcome back {user[0]}!"))
+        return redirect(url_for("events", user=user[0]))
     else:
         return "Invalid login, please try again."
 
-
+# Events page
 @app.route("/events")
 def events():
-    user = request.args.get("user")  # get the name from the URL
+    user = request.args.get("user")
     return render_template("events.html", user=user)
 
-
-if __name__ == "__main__":
-    app.run(debug=True)
-    
-    
- # debugging tool for viewing database info
+# Debug: show all users
 def show_users():
     conn = sqlite3.connect("herjozicircle.db")
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM users")
     users = cursor.fetchall()
     conn.close()
-    print("📌 Current users in DB:", users)
+    print("Users in DB:", users)
 
 show_users()
+
+if __name__ == "__main__":
+    app.run(debug=True)
