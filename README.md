@@ -5,6 +5,7 @@ Her Jozi Circle is a community-inspired web project designed to bring women in J
 This project is also a learning journey — my hands-on way to master frontend, backend, databases, and APIs while building something meaningful that reflects my passion for community building.
 
 
+
 ✨ Project Goals
 
 Build a full-stack web application to learn by doing.
@@ -20,6 +21,7 @@ Create and consume APIs to handle communication between the frontend and backend
 Showcase how technology and community can come together to make a difference.
 
 
+
 🚀 Features (Work in Progress)
 
 Homepage with information about the circle and upcoming activities.
@@ -33,6 +35,7 @@ Database integration to securely store user and event data.
 API endpoints to connect frontend forms to backend logic.
 
 
+
 🛠️ Tech Stack
 
 Frontend: HTML5, CSS3, (basic JavaScript for interactivity)
@@ -42,6 +45,7 @@ Backend: Flask (Python)
 Database: SQLite (starting simple, expandable to PostgreSQL/MySQL)
 
 APIs: Flask routes serving both HTML and JSON responses
+
 
 
 🌍 Why This Project?
@@ -64,11 +68,12 @@ This project is my way of merging my love for technology with my love for buildi
 
 ✅ Phase 2: Backend with Flask (routes, templates, static files).
 
-🔄 Phase 3: Databases (user signup storage).
+✅ Phase 3: Databases (user signup storage).
 
-🔄 Phase 4: APIs (communication between pages and backend).
+✅ Phase 4: APIs (communication between pages and backend).
 
 🔄 Phase 5: Deployment (sharing the project online).
+
 
 
 💡 Future Improvements
