@@ -84,3 +84,7 @@ Improve UI/UX design for smoother user experience.
 API to check weather and update users if event rescheduled
 
 Deploy the project so it’s accessible outside of localhost.
+
+
+Future Updates :
+- Put a polaroid picture of activity (turn those points into a polaroid)
