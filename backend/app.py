@@ -7,14 +7,36 @@ app = Flask(__name__)
 def init_db():
     conn = sqlite3.connect("herjozicircle.db")
     cursor = conn.cursor()
+    
+    # users table
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS users (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             name TEXT NOT NULL,
             email TEXT UNIQUE NOT NULL,
             password TEXT NOT NULL
-        )
-    ''')
+    )''')
+    
+    # events table
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS events (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            title TEXT NOT NULL,
+            date TEXT NOT NULL,
+            location TEXT,
+            description TEXT
+    )''')
+    
+    # rsvp table
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS rsvp (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            user_id INTEGER,
+            event_id INTEGER,
+            FOREIGN KEY(user_id) REFERENCES users(id),
+            FOREIGN KEY()
+        )''')
+    
     conn.commit()
     conn.close()
 
@@ -90,5 +112,12 @@ def events():
 
 # show_users()
 
+# RSVP
+
 if __name__ == "__main__":
     app.run(debug=True)
+
+results_obj = {
+    "errors" : [],
+    "values" : [{}]
+}
