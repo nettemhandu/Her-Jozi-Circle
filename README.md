@@ -80,7 +80,7 @@ This project is my way of merging my love for technology with my love for buildi
 
 Add user authentication (login/logout).
 
-Allow members to RSVP for events directly on the site.
+Allow members to RSVP for events directly on the site (currently).
 
 Display dynamic event lists from the database.
 
