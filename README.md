@@ -11,6 +11,7 @@ This project is also a learning journey — my hands-on way to master frontend, 
 Build a full-stack web application to learn by doing.
 
 Practice frontend development (HTML, CSS, JavaScript).
+
 Understand backend concepts with Flask (Python).
 
 Implement a database to store user signups and event participation.
