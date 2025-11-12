@@ -14,7 +14,7 @@ Practice frontend development (HTML, CSS, JavaScript)
 
 Understand backend concepts with Flask (Python)
 
-Implement a database to store user signups and event participation.
+Implement a database to store user signups and event participation
 
 Create and consume APIs to handle communication between the frontend and backend.
 
