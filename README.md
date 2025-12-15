@@ -1,4 +1,4 @@
-🌸 Her Jozi Circle
+🌸 Her Jozi Circle !
 
 Her Jozi Circle is a community-inspired web project designed to bring women in Johannesburg together through movement, creativity, and connection.
 
