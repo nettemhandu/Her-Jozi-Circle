@@ -1,4 +1,4 @@
-🌸 Her Jozi Circle !
+## 🌸 Her Jozi Circle 
 
 Her Jozi Circle is a community-inspired web project designed to bring women in Johannesburg together through movement, creativity, and connection.
 
@@ -6,7 +6,7 @@ This project is also a learning journey — my hands-on way to master frontend, 
 
 
 
-✨ Project Goals
+### ✨ Project Goals
 
 Build a full-stack web application to learn by doing.
 
@@ -22,7 +22,7 @@ Showcase how technology and community can come together to make a difference.
 
 
 
-🚀 Features (Work in Progress)
+### 🚀 Features (Work in Progress)
 
 Homepage with information about the circle and upcoming activities.
 
@@ -36,7 +36,7 @@ API endpoints to connect frontend forms to backend logic.
 
 
 
-🛠️ Tech Stack
+### 🛠️ Tech Stack
 
 Frontend: HTML5, CSS3, (basic JavaScript for interactivity)
 
@@ -48,7 +48,7 @@ APIs: Flask routes serving both HTML and JSON responses
 
 
 
-🌍 Why This Project?
+### 🌍 Why This Project?
 
 Her Jozi Circle isn’t just about code — it’s about community.
 I believe in creating spaces where women can:
@@ -62,7 +62,7 @@ Connect (book clubs, coffee dates, sisterhood events)
 This project is my way of merging my love for technology with my love for building circles of support and belonging.
 
 
-📖 Learning Journey
+### 📖 Learning Journey
 
 ✅ Phase 1: Frontend basics (HTML, CSS, page design).
 
@@ -76,7 +76,7 @@ This project is my way of merging my love for technology with my love for buildi
 
 
 
-💡 Future Improvements
+### 💡 Future Improvements
 
 Add user authentication (login/logout).
 
