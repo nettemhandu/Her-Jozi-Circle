@@ -76,20 +76,10 @@ This project is my way of merging my love for technology with my love for buildi
 
 
 
-### 💡 Future Improvements
-
-- Add user authentication (login/logout).
-
-- Allow members to RSVP for events directly on the site (currently).
-
-- Display dynamic event lists from the database.
-
-- Improve UI/UX design for smoother user experience.
-
-- API to check weather and update users if event rescheduled
-
-- Deploy the project so it’s accessible outside of localhost.
-
-
-Future Updates :
+### Future Updates :
 - Put a polaroid picture of activity (turn those points into a polaroid)
+- Allow members to RSVP for events directly on the site (currently).
+- Improve UI/UX design for smoother user experience.
+- API to check weather and update users if event rescheduled
+- Add hamburger navigation
+
