@@ -3,6 +3,8 @@ from flask import Flask,render_template, request, redirect, url_for
 
 app = Flask(__name__)
 
+WEATHER_API_KEY = "7dd26626d28e8f5a08b800cc9c488f45"
+
 # Initialize database
 def init_db():
     conn = sqlite3.connect("herjozicircle.db")

@@ -1,13 +1,13 @@
 /* ========== COLOR PALETTE ========== */
 :root {
-  --primary: #d291bc;    /* Soft lavender pink */
-  --secondary: #ff9a9e;  /* Blush pink */
-  --accent: #ecdcec;     /* Soft sky blue */
-  --light: #f9f7fe;      /* Light lavender */
-  --dark: #6a3093;       /* Deep purple */
-  --text: #f5f5f5;       /* Light text for dark backgrounds */
-  --background: #1e1e2f; /* Dark slate background */
-  --card-bg: #2a2a40;    /* Slightly lighter panel background */
+  --primary: #d291bc;
+  --secondary: #ff9a9e;
+  --accent: #ecdcec;
+  --light: #f9f7fe;
+  --dark: #6a3093;
+  --text: #f5f5f5;
+  --background: #1e1e2f;
+  --card-bg: #2a2a40;
 }
 
 /* ========== GENERAL ========== */
