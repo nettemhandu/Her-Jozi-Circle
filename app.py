@@ -4,6 +4,7 @@ from flask import Flask,render_template, request, redirect, url_for
 app = Flask(__name__)
 
 WEATHER_API_KEY = "7dd26626d28e8f5a08b800cc9c488f45"
+city = "Johannesburg"
 
 # Initialize database
 def init_db():
@@ -43,6 +44,13 @@ def init_db():
     conn.close()
 
 init_db()
+
+# Helper Methods for Weather API
+def get_weather_data(city):
+    url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={WEATHER_API_KEY}&units=metric"
+    
+    try:
+        response = requests.get(url)
 
 # Home page
 @app.route("/")
