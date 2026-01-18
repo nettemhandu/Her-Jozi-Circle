@@ -80,6 +80,6 @@ This project is my way of merging my love for technology with my love for buildi
 - Put a polaroid picture of activity (turn those points into a polaroid)
 - Allow members to RSVP for events directly on the site (currently)
 - Improve UI/UX design for smoother user experience
-- API to check weather and update users if event rescheduled
+- API to check weather and update users if event rescheduled ✅
 - Add hamburger navigation to my landing page
 

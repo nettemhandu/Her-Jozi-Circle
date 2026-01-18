@@ -1,4 +1,5 @@
 import sqlite3
+import requests
 from flask import Flask,render_template, request, redirect, url_for
 
 app = Flask(__name__)
@@ -56,7 +57,7 @@ def get_weather_data(city):
     
     try:
         response = requests.get(url)
-        data = response.json
+        data = response.json()
         
         if response.status_code == 200:
             return {
@@ -79,6 +80,7 @@ def generate_message(temp, description):
         return "Great weather for outdoors today :)"
     else:
         return "Weather conditions may not be ideal for outdoors. Rain check :)"
+
 
 # Home page
 @app.route("/")
@@ -137,7 +139,33 @@ def login():
 def events():
     user = request.args.get("user")
     action = request.args.get("action")  # either "signup" or "login"
-    return render_template("events.html", user=user, action=action)
+    
+    weather_data = get_weather_data(city)
+    
+    temp = None
+    description = None
+    icon = None
+    message = "Weather data unavailable"
+    
+    if weather_data:
+        temp = weather_data.get('temp')
+        description = weather_data.get('description')
+        icon = weather_data.get('icon')
+        
+        if temp is not None and description:
+            message = generate_message(temp, description)
+            
+    return render_template("events.html",
+                            user = user,
+                            action = action,
+                            city = city,
+                            temp = temp,
+                            description = description,
+                            icon = icon,
+                            message = message)
+                    
+
+
 
 # # Debug: show all users
 # def show_users():

@@ -8,7 +8,6 @@
       rel="stylesheet"
       href="{{ url_for('static', filename='style.css') }}"
     />
-
     <link
       href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Poppins:wght@300;400;600&display=swap"
       rel="stylesheet"
@@ -16,47 +15,59 @@
   </head>
   <body>
     <div class="container">
+      <!-- Welcome Banner -->
+      {% if user and action == "signup" %}
+        <div class="welcome-banner">
+          🎉 Welcome, {{ user }}! You successfully joined the circle.
+        </div>
+      {% elif user and action == "login" %}
+        <div class="welcome-banner">
+          👋 Welcome back to the circle, {{ user }}!
+        </div>
+      {% endif %}
 
-    <!-- Welcome Banner -->
-    {% if user and action == "signup" %}
-      <div class="welcome-banner">
-        🎉 Welcome, {{ user }}! You successfully joined the circle.
-      </div>
-    {% elif user and action == "login" %}
-      <div class="welcome-banner">
-        👋 Welcome back to the circle, {{ user }}!
-      </div>
-    {% endif %}
-
-    <!-- Weather API Banner -->
-
-    {% if temp %}
-        <p>Temperature: {{ temp }}°C</p>
-        <p>Condition: {{ description }}</p>
-        <h3 class="{{ 'good' if temp >= 10 and temp <= 30 and 'rain' not in description and 'snow' not in description else 'bad' }}">
-            {{ message }}
-        </h3>
-    {% else %}
-        <p>Loading weather data...</p>
-    {% endif %}
-
-
-    <!-- Main Events Content -->
-    <h1>Upcoming Events</h1>
-    <p>Check out all the amazing activities we have planned for you!</p>
-
-    <ul>
-      <li>Morning Run – Mondays 6:30 AM</li>
-      <li>Creative Circle – Wednesdays 5:00 PM</li>
-      <li>Book Club – Fridays 7:00 PM</li>
-      <li>Weekend Picnic – Saturday 10:00 AM</li>
-    </ul>
-    <header>
+      <!-- Main Header -->
       <h1>Upcoming Events</h1>
       <p><em>Find your next picnic, run, or creative session</em></p>
-    </header>
 
-    <main class="events-container">
+      <!-- Weather Card -->
+      <div class="weather-card">
+        <h2>🌤️ Today's Weather in Johannesburg</h2>
+        
+        {% if temp %}
+          <div class="weather-info">
+            {% if icon %}
+              <img src="{{ icon }}" class="weather-icon" alt="Weather icon">
+            {% endif %}
+            <div class="weather-details">
+              <p class="weather-temp">{{ temp }}°C</p>
+              <p class="weather-condition">{{ description|capitalize }}</p>
+            </div>
+          </div>
+          
+          <div class="running-advice {{ 'good' if temp >= 10 and temp <= 30 and 'rain' not in description and 'snow' not in description else 'bad' }}">
+            {{ message }}
+          </div>
+        {% else %}
+          <p class="weather-loading">Loading weather data...</p>
+        {% endif %}
+      </div>
+
+      <!-- Weekly Schedule -->
+      <h2>📅 Weekly Schedule</h2>
+      <ul>
+        <li><strong>Morning Run</strong> – Mondays 6:30 AM</li>
+        <li><strong>Creative Circle</strong> – Wednesdays 5:00 PM</li>
+        <li><strong>Book Club</strong> – Fridays 7:00 PM</li>
+        <li><strong>Weekend Picnic</strong> – Saturday 10:00 AM</li>
+      </ul>
+
+      <hr class="divider">
+
+      <!-- Featured Events -->
+      <h2>🌟 Featured Events</h2>
+
+      <!-- Event Cards -->
       <div class="event-card">
         <h3>🌈 Rainbow Picnic — Emmarentia Park</h3>
         <p><strong>Date:</strong> Saturday, Sept 20, 2025</p>
@@ -88,10 +99,10 @@
         <p>A 5km fun run followed by coffee and chats.</p>
         <a href="#" class="btn">RSVP</a>
       </div>
-    </main>
 
-    <footer>
-      <p>© 2025 Her Jozi Circle</p>
-    </footer>
+      <footer>
+        <p>© 2025 Her Jozi Circle</p>
+      </footer>
+    </div>
   </body>
 </html>
