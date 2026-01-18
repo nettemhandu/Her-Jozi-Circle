@@ -46,11 +46,39 @@ def init_db():
 init_db()
 
 # Helper Methods for Weather API
+
 def get_weather_data(city):
+    """
+    This function gets weather data from an API
+    It returns temperature, description, and icon URL
+    """
     url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={WEATHER_API_KEY}&units=metric"
     
     try:
         response = requests.get(url)
+        data = response.json
+        
+        if response.status_code == 200:
+            return {
+                'temp': data['main']['temp'],  # Temperature in Celsius
+                'description': data['weather'][0]['description'],  # Like "clear sky"
+                'icon': f"http://openweathermap.org/img/wn/{data['weather'][0]['icon']}@2x.png"  # Weather icon
+            }
+    except Exception as e:
+        print(f"Error getting weather: {e}")
+    
+    return None
+
+def generate_message(temp, description):
+    """
+    This function creates a running recommendation based on weather
+    """
+    description_lower = description.lower()
+    
+    if temp >= 10 and temp <= 30 and 'rain' not in description_lower and 'snow' not in description_lower:
+        return "Great weather for outdoors today :)"
+    else:
+        return "Weather conditions may not be ideal for outdoors. Rain check :)"
 
 # Home page
 @app.route("/")
