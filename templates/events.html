@@ -28,6 +28,19 @@
       </div>
     {% endif %}
 
+    <!-- Weather API Banner -->
+
+    {% if temp %}
+        <p>Temperature: {{ temp }}°C</p>
+        <p>Condition: {{ description }}</p>
+        <h3 class="{{ 'good' if temp >= 10 and temp <= 30 and 'rain' not in description and 'snow' not in description else 'bad' }}">
+            {{ message }}
+        </h3>
+    {% else %}
+        <p>Loading weather data...</p>
+    {% endif %}
+
+
     <!-- Main Events Content -->
     <h1>Upcoming Events</h1>
     <p>Check out all the amazing activities we have planned for you!</p>
