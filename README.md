@@ -3,7 +3,7 @@
 Her Jozi Circle is a community-inspired web project designed to bring women in Johannesburg together through movement, creativity, and connection. This project is also a learning journey — my hands-on way to master frontend, backend, databases, and APIs while building something meaningful that reflects my passion for community building.
 
 ### Live Demo ⤵︎
-https://her-jozi-circle.onrender.com
+https://her-jozi-circle.onrender.com - now working
 
 
 ### ✨ Project Goals
